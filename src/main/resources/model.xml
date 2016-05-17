@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+	<featureModel chosenLayoutAlgorithm="4">
+		<struct>
+			<and abstract="true" mandatory="true" name="SubisTravel">
+				<and mandatory="true" name="Gallery">
+					<and mandatory="true" name="SearchSystem">
+						<feature name="Provider"/>
+						<feature name="Type"/>
+						<feature name="Description"/>
+					</and>
+					<feature mandatory="true" name="CommentsAndRaitings"/>
+				</and>
+				<and mandatory="true" name="ItemManagement">
+					<feature mandatory="true" name="QuestionSection"/>
+				</and>
+				<and mandatory="true" name="Transactions">
+					<feature mandatory="true" name="ShoppingCart"/>
+				</and>
+				<or name="Reports">
+					<feature mandatory="true" name="Sells"/>
+					<feature mandatory="true" name="Searches"/>
+					<feature mandatory="true" name="TransactionsMonitoring"/>
+				</or>
+				<feature name="MessageSystem">
+				</feature>
+				<or mandatory="true" name="Authentication">
+					<or mandatory="true" name="SocialNetwork">
+						<feature mandatory="true" name="Facebook"/>
+						<feature mandatory="true" name="Twitter"/>
+					</or>
+					<feature mandatory="true" name="DB"/>
+					<feature mandatory="true" name="Autoregister"/>
+					<feature mandatory="true" name="ProviderEnable"/>
+				</or>
+				<feature name="PublishActivitiesSocialNetwork"/>
+			</and>
+		</struct>
+		<constraints>
+			<rule>
+				<imp>
+					<var>PublishActivitiesSocialNetwork</var>
+					<var>SocialNetwork</var>
+				</imp>
+			</rule>
+		</constraints>
+		<calculations Auto="true" Constraints="true" Features="true" Redundant="true" Tautology="true"/>
+		<comments/>
+		<featureOrder userDefined="false"/>
+	</featureModel>
